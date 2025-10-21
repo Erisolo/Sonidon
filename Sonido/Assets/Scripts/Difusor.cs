@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Difusor : MonoBehaviour
 {
-    [SerializeField]
     private List<AudioSource> sources = new List<AudioSource>();
     [SerializeField]
     private int polifonia;
     [Range(0f, 1f)]
-    public float minVol, maxVol;  // volumenes máximo y mínimo establecidos y volumen origintal del source
+    public float minVol, maxVol;  // volumenes mï¿½ximo y mï¿½nimo establecidos y volumen origintal del source
     [SerializeField] [Range(0f, 1f)]
     private float pitchVar;
     [Range(0f, 30f)]
@@ -43,14 +42,14 @@ public class Difusor : MonoBehaviour
     {
         // tiempo de espera aleatorio en el intervalo [minTime,maxTime]
         float waitTime = Random.Range(minTime, maxTime);
-        Debug.Log(waitTime);
+        //Debug.Log(waitTime);
 
         // miramos si hay un clip asignado al source (sirve para la primera vez q se ejecuta)
         if (source.clip == null)
             // waitfor seconds suspende la coroutine durante waitTime
             yield return new WaitForSeconds(waitTime);
 
-        // cuando hay clip se añade la long del clip + el tiempo de espera para esperar entre lanzamientos
+        // cuando hay clip se aï¿½ade la long del clip + el tiempo de espera para esperar entre lanzamientos
         else
             yield return new WaitForSeconds(source.clip.length + waitTime);
 
@@ -76,12 +75,15 @@ public class Difusor : MonoBehaviour
         source.clip = audioData;
         source.pitch = Random.Range(1 - pitchVar, 1 + pitchVar);
         source.panStereo = Random.Range(minPan, maxPan);
-        source.volume = Random.Range(minVol, maxVol);
+        if(maxVol == 0)
+            source.volume = 0;
+        else
+            source.volume = Random.Range(minVol, maxVol);
     }
 
 
 
-    //estos métodos son usados para desde fuera activar o desactivar el sonido
+    //estos mï¿½todos son usados para desde fuera activar o desactivar el sonido
     void StopSound()
     {
         enablePlayMode = false;
