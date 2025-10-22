@@ -8,8 +8,6 @@ public class SchedEvent: MonoBehaviour {
     private AudioSource casings;
 
     [SerializeField]
-    private float lap;
-    [SerializeField]
     private float overlapTime;
 
     public AudioClip[] pcmDataHeads, pcmDataTails, pcmDataCasings;
@@ -49,18 +47,27 @@ public class SchedEvent: MonoBehaviour {
 
     // Update is called once per frame
     void Update(){
-        if (Input.GetKeyDown(KeyCode.Alpha3)) {
-            int h = Random.Range(0, nHeads), t = Random.Range(0, nTails), c = Random.Range(0, nCasings);
-            head.clip = pcmDataHeads[h];
-            tail.clip = pcmDataTails[t];
-            casings.clip = pcmDataCasings[c];
-            
-            double clipLength = (double) head.clip.samples / head.pitch;
-            
-            int sRATE = AudioSettings.outputSampleRate;
-
-            head.Play();
-            tail.PlayScheduled(AudioSettings.dspTime+clipLength/sRATE);
+        if (Input.GetKeyDown(KeyCode.Alpha3)) 
+        {
+            Shoot();
         }
+    }
+
+    void Shoot()
+    {
+        int h = Random.Range(0, nHeads), t = Random.Range(0, nTails), c = Random.Range(0, nCasings);
+        head.clip = pcmDataHeads[h];
+        tail.clip = pcmDataTails[t];
+        casings.clip = pcmDataCasings[c];
+
+        double headLength = (double)head.clip.samples / head.pitch;
+        double tailLength = (double)tail.clip.samples / tail.pitch;
+        
+
+        int sRATE = AudioSettings.outputSampleRate;
+
+        head.Play();
+        tail.PlayScheduled(AudioSettings.dspTime + headLength / sRATE - overlapTime);
+        casings.PlayScheduled(AudioSettings.dspTime + (headLength + tailLength) / sRATE - overlapTime*2);
     }
 }
