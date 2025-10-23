@@ -225,6 +225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 684826301}
+  - component: {fileID: 684826302}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -247,6 +248,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &684826302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684826300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c11348a9993cd7d439c573252662e4c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overlapTime: 0.1
+  pcmDataHeads:
+  - {fileID: 8300000, guid: 5a98d11a6fea7c64bbd550d502bd7c0b, type: 3}
+  - {fileID: 8300000, guid: 39ac2d296a7fb634892ed001acfc5eee, type: 3}
+  pcmDataTails:
+  - {fileID: 8300000, guid: 3cdeae2362a130b40a5685adc296739a, type: 3}
+  - {fileID: 8300000, guid: 92086a3cc9b72884981df014c04693e3, type: 3}
+  pcmDataCasings:
+  - {fileID: 8300000, guid: 6a4baef8660ec154c852242560354622, type: 3}
+  - {fileID: 8300000, guid: 96137638e5c21c744aac3b1759a777e4, type: 3}
+  - {fileID: 8300000, guid: 0edafcc71c7584b4fa1d8ac5404a54fa, type: 3}
+  - {fileID: 8300000, guid: 9e61aa190e0b70644841ad818349c742, type: 3}
 --- !u!1 &1628823455
 GameObject:
   m_ObjectHideFlags: 0

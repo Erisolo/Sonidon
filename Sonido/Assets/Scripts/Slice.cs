@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SchedEvent: MonoBehaviour {
+public class Slice: MonoBehaviour {
     private AudioSource head;
     private AudioSource tail;
     private AudioSource casings;
 
     [SerializeField]
     private float overlapTime;
+    private int overLapSampleDuration; //cuantos samples dura el overlap
 
+    
     public AudioClip[] pcmDataHeads, pcmDataTails, pcmDataCasings;
     private int nHeads, nTails, nCasings;
 
@@ -25,24 +27,39 @@ public class SchedEvent: MonoBehaviour {
 
     private void Start()
     {
-        for (int i = 0; i< pcmDataHeads.Length; i++) 
-        {
-        }
-        for (int i = 0; i< pcmDataHeads.Length; i++) 
-        {
-        }
-        for (int i = 0; i< pcmDataHeads.Length; i++) 
-        {
-        }
+        overLapSampleDuration = (int)(overlapTime * AudioSettings.outputSampleRate);
+        
+        for (int i = 0; i < nHeads; i++)
+            pcmDataHeads[i] = FadeOut(pcmDataHeads[i]);
+        for(int i = 0; i < nTails; i++)
+            pcmDataTails[i] = FadeIn(pcmDataTails[i]);
     }
 
-    void FadeIn(AudioClip clip)
+    AudioClip FadeIn(AudioClip clip)
     {
+        float[] clipData = new float[clip.samples];
+        clip.GetData(clipData, 0);
 
+        for (int i = 0; i < overLapSampleDuration; i++)
+        {
+            clipData[i] = Mathf.Sqrt(i/overLapSampleDuration);
+        }
+        
+        clip.SetData(clipData, 0);
+        return clip;
     }
-    void FadeOut(AudioClip clip)
+    AudioClip FadeOut(AudioClip clip)
     {
-
+        float[] clipData = new float[clip.samples];
+        clip.GetData(clipData, 0);
+        
+        for (int i = clipData.Length - overLapSampleDuration; i < clipData.Length; i++)
+        {
+            clipData[i] = Mathf.Sqrt((overLapSampleDuration - i)/overLapSampleDuration);
+        }
+        
+        clip.SetData(clipData, 0);
+        return clip;
     }
 
     // Update is called once per frame
