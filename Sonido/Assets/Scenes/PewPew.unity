@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11348a9993cd7d439c573252662e4c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  overlapTime: 0.1
+  overlapTime: 0.01
   pcmDataHeads:
   - {fileID: 8300000, guid: 5a98d11a6fea7c64bbd550d502bd7c0b, type: 3}
   - {fileID: 8300000, guid: 39ac2d296a7fb634892ed001acfc5eee, type: 3}

@@ -28,9 +28,11 @@ public class Slice: MonoBehaviour {
     private void Start()
     {
         overLapSampleDuration = (int)(overlapTime * AudioSettings.outputSampleRate);
-        
+
         for (int i = 0; i < nHeads; i++)
+        {
             pcmDataHeads[i] = FadeOut(pcmDataHeads[i]);
+        }
         for(int i = 0; i < nTails; i++)
             pcmDataTails[i] = FadeIn(pcmDataTails[i]);
     }
@@ -52,8 +54,12 @@ public class Slice: MonoBehaviour {
     {
         float[] clipData = new float[clip.samples];
         clip.GetData(clipData, 0);
+
+        int overlapStartSample = clipData.Length - overLapSampleDuration;
+        if(overlapStartSample < 0) //evitamos que si la duracion del overlap es mas grande que la duracion del clip explote todo
+            overlapStartSample = 0;
         
-        for (int i = clipData.Length - overLapSampleDuration; i < clipData.Length; i++)
+        for (int i = overlapStartSample; i < clipData.Length; i++)
         {
             clipData[i] = Mathf.Sqrt((overLapSampleDuration - i)/overLapSampleDuration);
         }
