@@ -42,9 +42,13 @@ public class Slice: MonoBehaviour {
         float[] clipData = new float[clip.samples];
         clip.GetData(clipData, 0);
 
-        for (int i = 0; i < overLapSampleDuration; i++)
+        int overlapEndSample = overLapSampleDuration;
+        if(overlapEndSample > clipData.Length) //evitamos que si la duracion del overlap es mas grande que la duracion del clip explote todo
+            overlapEndSample = clipData.Length;
+        
+        for (int i = 0; i < overlapEndSample; i++)
         {
-            clipData[i] = Mathf.Sqrt(i/overLapSampleDuration);
+            clipData[i] *= Mathf.Sqrt(i/overLapSampleDuration);
         }
         
         clip.SetData(clipData, 0);
@@ -61,7 +65,7 @@ public class Slice: MonoBehaviour {
         
         for (int i = overlapStartSample; i < clipData.Length; i++)
         {
-            clipData[i] = Mathf.Sqrt((overLapSampleDuration - i)/overLapSampleDuration);
+            clipData[i] *= Mathf.Sqrt((overLapSampleDuration - i)/overLapSampleDuration);
         }
         
         clip.SetData(clipData, 0);
