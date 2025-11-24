@@ -1,0 +1,37 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UIElements;
+
+public class playerMovement : MonoBehaviour
+{
+    [SerializeField]
+    private float _movementSpeed = 0.1f;
+    //private Transform _transform;
+    private Rigidbody _rb;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        //_transform = GetComponent<Transform>();
+        _rb = GetComponent<Rigidbody>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        //movimiento super basico en todos los ejes
+        if (Input.GetKey(KeyCode.W))
+            _rb.velocity = (Vector3.forward * _movementSpeed);
+        else if (Input.GetKey(KeyCode.S))
+            _rb.velocity = (Vector3.back * _movementSpeed);
+
+        if (Input.GetKey(KeyCode.A))
+            _rb.velocity = (Vector3.left * _movementSpeed);
+        else if (Input.GetKey(KeyCode.D))
+            _rb.velocity = (Vector3.right * _movementSpeed);
+        else
+            _rb.velocity = Vector3.zero;
+    }
+}
