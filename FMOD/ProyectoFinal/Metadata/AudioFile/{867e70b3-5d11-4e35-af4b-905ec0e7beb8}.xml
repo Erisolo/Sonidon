@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{867e70b3-5d11-4e35-af4b-905ec0e7beb8}">
+		<property name="assetPath">
+			<value>Lloros/Lloro_3.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1.2848072562358277</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{82fd821b-1875-451d-b62f-2452d6ddc680}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{0b7b24b4-5868-4b67-92be-8f50a022f99d}">
+		<property name="assetPath">
+			<value>Risas/Risa_3.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1.0235147392290249</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{82fd821b-1875-451d-b62f-2452d6ddc680}</destination>
+		</relationship>
+	</object>
+</objects>

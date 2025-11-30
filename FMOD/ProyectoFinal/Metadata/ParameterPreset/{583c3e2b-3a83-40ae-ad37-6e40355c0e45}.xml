@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{583c3e2b-3a83-40ae-ad37-6e40355c0e45}">
+		<property name="name">
+			<value>Sonajero</value>
+		</property>
+		<relationship name="folder">
+			<destination>{e27f7eff-f8e3-4070-bc0e-040175ca8458}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{08f9a25d-5a47-45d4-a557-4e5849653627}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{08f9a25d-5a47-45d4-a557-4e5849653627}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>No</value>
+			<value>Si</value>
+		</property>
+		<property name="initialValue">
+			<value>1</value>
+		</property>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{8c3f9da8-5a6f-4670-a95c-6f186fcb0e37}">
+		<property name="assetPath">
+			<value>Lloros/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{82fd821b-1875-451d-b62f-2452d6ddc680}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{611c0005-bca5-4c39-91d6-0c4bd4d44386}">
+		<property name="name">
+			<value>Intensidad llanto</value>
+		</property>
+		<relationship name="folder">
+			<destination>{e27f7eff-f8e3-4070-bc0e-040175ca8458}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{519e0383-029d-442c-a0b8-1e8227cee405}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{519e0383-029d-442c-a0b8-1e8227cee405}">
+		<property name="minimum">
+			<value>0.10000000000000001</value>
+		</property>
+		<property name="initialValue">
+			<value>0.5</value>
+		</property>
+		<relationship name="automators">
+			<destination>{dddb40b1-6be3-4f99-bc7e-805eaa496276}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{dddb40b1-6be3-4f99-bc7e-805eaa496276}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>cursorPosition</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{a89bbb8a-901a-4a0a-973a-ab0c48941389}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{a89bbb8a-901a-4a0a-973a-ab0c48941389}">
+		<relationship name="parameter">
+			<destination>{6bd5ff3d-0114-4a36-9391-9a40c9f5a1aa}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{49e3721e-5793-4d50-a615-ad8721d665f3}</destination>
+			<destination>{7e011f1b-7d87-4dac-beb8-d5151bd36885}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{49e3721e-5793-4d50-a615-ad8721d665f3}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>0.100000001</value>
+		</property>
+		<property name="curveShape">
+			<value>0.5</value>
+		</property>
+		<property name="isSCurve">
+			<value>true</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{7e011f1b-7d87-4dac-beb8-d5151bd36885}">
+		<property name="position">
+			<value>19.638064971751412</value>
+		</property>
+		<property name="value">
+			<value>1</value>
+		</property>
+	</object>
+</objects>
