@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{bdcb8e4a-82d3-49fe-9e97-bad57a5038eb}">
+		<property name="name">
+			<value>Emisora</value>
+		</property>
+		<relationship name="folder">
+			<destination>{e27f7eff-f8e3-4070-bc0e-040175ca8458}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{1a52a0ad-6e92-4ac3-9a09-ba14143fddf9}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{1a52a0ad-6e92-4ac3-9a09-ba14143fddf9}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
