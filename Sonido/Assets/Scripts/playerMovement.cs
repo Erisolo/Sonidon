@@ -11,7 +11,10 @@ public class playerMovement : MonoBehaviour
     private float _movementSpeed = 0.1f;
     //private Transform _transform;
     private Rigidbody _rb;
-    
+
+    [SerializeField]
+    private GameObject alfombraObject;
+
     [SerializeField]
     private StudioEventEmitter _emitter;
     
@@ -33,13 +36,21 @@ public class playerMovement : MonoBehaviour
         _emitter.SetParameter("Velocidad Andar", walkSpeed);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        //_emitter.SetParameters("Superficie", (int) alfombra)
+        if (collision.gameObject == alfombraObject && !alfombra)
+        {
+            _emitter.SetParameter("Superficie", 1);
+            alfombra = true;
+        }
     }
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
-        //_emitter.SetParameters("Superficie", (int) alfombra)
+        if (collision.gameObject == alfombraObject && alfombra)
+        {
+            _emitter.SetParameter("Superficie", 0);
+            alfombra = false;
+        }
     }
 
     // Update is called once per frame
