@@ -35,24 +35,24 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Vector3 vx = Vector3.zero, vy = Vector3.zero;
         //movimiento super basico en todos los ejes
         if (Input.GetKey(KeyCode.W))
-            _rb.velocity = (Vector3.forward * _movementSpeed);
+            vy = (transform.forward);
         else if (Input.GetKey(KeyCode.S))
-            _rb.velocity = (Vector3.back * _movementSpeed);
+            vy = (-transform.forward);
 
         if (Input.GetKey(KeyCode.A))
-            _rb.velocity = (Vector3.left * _movementSpeed);
+            vx = (-transform.right);
         else if (Input.GetKey(KeyCode.D))
-            _rb.velocity = (Vector3.right * _movementSpeed);
-        else
-        {
-            _rb.velocity = Vector3.zero;
-            _emitter.Stop();
-        }
+            vx= (transform.right);
+
+        _rb.velocity = (vx + vy).normalized * _movementSpeed;
+        
         
         if(_rb.velocity.magnitude != 0 && !_emitter.IsActive)
             _emitter.Play();
+        else
+            _emitter.Stop();
     }
 }
