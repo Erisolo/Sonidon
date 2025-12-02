@@ -74,7 +74,14 @@ public class playerMovement : MonoBehaviour
         if(_rb.velocity.magnitude == 0 && (_emitter.IsActive))
             _emitter.Stop();
         else if (!(_emitter.IsActive) && _rb.velocity.magnitude != 0)
+        {
+            if(alfombra)
+                _emitter.SetParameter("Superficie", 1);
+            else
+                _emitter.SetParameter("Superficie", 0);
             _emitter.Play();
+        }
+            
             
     }
 }
