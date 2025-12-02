@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 
 public class playerMovement : MonoBehaviour
 {
+    bool alfombra;
     [SerializeField]
     private float _movementSpeed = 0.1f;
     //private Transform _transform;
@@ -22,14 +23,23 @@ public class playerMovement : MonoBehaviour
 
         int walkSpeed;
         
-        if(_movementSpeed < 0.1f)
+        if(_movementSpeed < 5f)
             walkSpeed = 2;
-        else if(_movementSpeed < 0.2f)
+        else if(_movementSpeed < 11f)
             walkSpeed = 1;
         else
             walkSpeed = 0;
             
         _emitter.SetParameter("Velocidad Andar", walkSpeed);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //_emitter.SetParameters("Superficie", (int) alfombra)
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        //_emitter.SetParameters("Superficie", (int) alfombra)
     }
 
     // Update is called once per frame
@@ -50,9 +60,10 @@ public class playerMovement : MonoBehaviour
         _rb.velocity = (vx + vy).normalized * _movementSpeed;
         
         
-        if(_rb.velocity.magnitude != 0 && !_emitter.IsActive)
-            _emitter.Play();
-        else
+        if(_rb.velocity.magnitude == 0 && (_emitter.IsActive))
             _emitter.Stop();
+        else if (!(_emitter.IsActive) && _rb.velocity.magnitude != 0)
+            _emitter.Play();
+            
     }
 }
