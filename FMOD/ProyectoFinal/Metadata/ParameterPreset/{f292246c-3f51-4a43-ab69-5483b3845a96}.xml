@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{f292246c-3f51-4a43-ab69-5483b3845a96}">
+		<property name="name">
+			<value>Volumen Radio</value>
+		</property>
+		<relationship name="folder">
+			<destination>{e27f7eff-f8e3-4070-bc0e-040175ca8458}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{d7e9167d-128a-4741-99fa-0463c66a0515}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{d7e9167d-128a-4741-99fa-0463c66a0515}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
